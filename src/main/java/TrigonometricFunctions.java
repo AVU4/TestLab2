@@ -34,6 +34,7 @@ public class TrigonometricFunctions {
    }
 
    public double getSec(double x, double accuracy) {
+        if (x % Math.PI / 2 == 0) return NaN;
         return 1 / getCos(x, accuracy);
    }
 
