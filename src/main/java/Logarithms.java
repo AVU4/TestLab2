@@ -11,11 +11,17 @@ public class Logarithms {
                 i += 2;
             }
             curResult *= 2;
+            Writer.write(x, curResult, Modules.Ln);
             return curResult;
-        }else return Double.NaN;
+        }else{
+            Writer.write(x, Double.NaN, Modules.Ln);
+            return Double.NaN;
+        }
     }
 
     public double getLogarithmSecondBase(double x, double accuracy) {
-        return getNaturalLogarithm(x, accuracy) / getNaturalLogarithm(2, accuracy);
+        double result = getNaturalLogarithm(x, accuracy) / getNaturalLogarithm(2, accuracy);
+        Writer.write(x, result, Modules.Log_2);
+        return result;
     }
 }

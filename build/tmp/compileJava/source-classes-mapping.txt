@@ -1,7 +1,11 @@
-Logarithms.java
- Logarithms
 Main.java
  Main
+Modules.java
+ Modules
+Writer.java
+ Writer
+Logarithms.java
+ Logarithms
 MathSystems.java
  MathSystems
 TrigonometricFunctions.java

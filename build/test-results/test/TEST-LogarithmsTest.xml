@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LogarithmsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-16T19:56:47" hostname="avu-EasyNote-TJ75" time="0.838">
+  <properties/>
+  <testcase name="testModuleLogarithmSecondBase()" classname="LogarithmsTest" time="0.838"/>
+  <system-out><![CDATA[Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+Вывести значение? [y/n]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
