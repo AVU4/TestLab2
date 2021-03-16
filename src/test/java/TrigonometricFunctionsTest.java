@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.math.BigDecimal;
@@ -9,6 +8,20 @@ import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.eq;
 
 public class TrigonometricFunctionsTest {
+
+    @Test
+    public void testSin() {
+        TrigonometricFunctions trigonometricFunctions = new TrigonometricFunctions();
+        Assertions.assertEquals(0, trigonometricFunctions.getSin(-3.14, 0.0001));
+        Assertions.assertEquals(-1, BigDecimal.valueOf(trigonometricFunctions.getSin(-1.57, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0, trigonometricFunctions.getSin(0, 0.0001));
+        Assertions.assertEquals(1, BigDecimal.valueOf(trigonometricFunctions.getSin(1.57, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-0.599, BigDecimal.valueOf(trigonometricFunctions.getSin(-2.5, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-0.462, BigDecimal.valueOf(trigonometricFunctions.getSin(-0.48, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0.435, BigDecimal.valueOf(trigonometricFunctions.getSin(0.45, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0.917, BigDecimal.valueOf(trigonometricFunctions.getSin(1.98, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+
+    }
 
     @Test
     public void testCos(){
@@ -62,6 +75,44 @@ public class TrigonometricFunctionsTest {
         Assertions.assertEquals(-1, functions.getSec(3.14, 0.0001));
         Assertions.assertEquals(-2.040, BigDecimal.valueOf(functions.getSec(4.2, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
 
+    }
+
+    @Test
+    public void integrateTestCos() {
+        TrigonometricFunctions trigonometricFunctions = new TrigonometricFunctions();
+        Assertions.assertEquals(-1, trigonometricFunctions.getCos(-3.14, 0.0001));
+        Assertions.assertEquals(0, BigDecimal.valueOf(trigonometricFunctions.getCos(-1.57, 0.00001)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(1, trigonometricFunctions.getCos(0, 0.0001));
+        Assertions.assertEquals(0, BigDecimal.valueOf(trigonometricFunctions.getCos(1.57, 0.00001)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-1, trigonometricFunctions.getCos(3.14, 0.00001));
+        Assertions.assertEquals(0.454, BigDecimal.valueOf(trigonometricFunctions.getCos(-1.1, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-0.819, BigDecimal.valueOf(trigonometricFunctions.getCos(2.53, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-0.539, BigDecimal.valueOf(trigonometricFunctions.getCos(2.14, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0.946, BigDecimal.valueOf(trigonometricFunctions.getCos(-0.33, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+    }
+
+    @Test
+    public void integrateTestSec() {
+        TrigonometricFunctions functions = new TrigonometricFunctions();
+        Assertions.assertEquals(-1.181, BigDecimal.valueOf(functions.getSec(2.58, 0.001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-7.644, BigDecimal.valueOf(functions.getSec(1.702, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(6.486, BigDecimal.valueOf(functions.getSec(1.416, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(1.307, BigDecimal.valueOf(functions.getSec(0.7, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(1.286, BigDecimal.valueOf(functions.getSec(-0.68, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(10.455, BigDecimal.valueOf(functions.getSec(-1.475, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-1.382, BigDecimal.valueOf(functions.getSec(-2.38, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+    }
+
+    @Test
+    public void integrateTestCot(){
+        TrigonometricFunctions trigonometricFunctions = new TrigonometricFunctions();
+        Assertions.assertEquals(5.9, BigDecimal.valueOf(trigonometricFunctions.getCot(-2.974, 0.001)).setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0.858, BigDecimal.valueOf(trigonometricFunctions.getCot(-2.28, 0.001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0.422, BigDecimal.valueOf(trigonometricFunctions.getCot(-1.97, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(0.0, BigDecimal.valueOf(trigonometricFunctions.getCot(-1.57, 0.0001)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-0.436, BigDecimal.valueOf(trigonometricFunctions.getCot(-1.16, 0.0001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-4.601, BigDecimal.valueOf(trigonometricFunctions.getCot(-0.214, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+        Assertions.assertEquals(-10.495, BigDecimal.valueOf(trigonometricFunctions.getCot(-0.095, 0.00001)).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
     }
 
 }

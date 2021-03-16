@@ -3,26 +3,32 @@ import static java.lang.Double.NaN;
 public class TrigonometricFunctions {
 
     public double getSin(double x, double accuracy) {
-        double power;
-        double curSum = 0;
-        double testSum = -1;
-        int fact = 1;
-        int i = 1;
-        int sign = -1;
-        while (Math.abs(curSum - testSum) > accuracy) {
-            testSum = curSum;
-            power = 1;
-            fact = 1;
-            for (int j = 1; j <= i; j ++) {
-                power = power * x;
-                fact = fact * j;
+        if (x % 3.14 != 0) {
+            double power;
+            double curSum = 0;
+            double testSum = -1;
+            int fact = 1;
+            int i = 1;
+            int sign = -1;
+            while (Math.abs(curSum - testSum) > accuracy) {
+                testSum = curSum;
+                power = 1;
+                fact = 1;
+                for (int j = 1; j <= i; j++) {
+                    power = power * x;
+                    fact = fact * j;
+                }
+                sign = -1 * sign;
+                curSum += sign * power / fact;
+                i += 2;
             }
-            sign = -1 * sign;
-            curSum += sign * power / fact;
-            i += 2;
+            Writer.write(x, curSum, Modules.Sin);
+            return curSum;
+        }else{
+            Writer.write(x, 0, Modules.Sin);
+            return 0;
         }
-        Writer.write(x, curSum, Modules.Sin);
-        return curSum;
+
     }
 
 
